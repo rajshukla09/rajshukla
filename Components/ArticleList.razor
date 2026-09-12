@@ -1,0 +1,10 @@
+@foreach (var article in Articles)
+{
+    <article class="writing-item">
+        <div class="article-meta"><span>@article.ContentType</span><time datetime="@article.Published.ToString("yyyy-MM-dd")">@article.Published.ToString("MMMM d, yyyy")</time></div>
+        <h2><a href="articles/@article.Slug">@article.Title</a></h2>
+        <p>@article.Description</p>
+        <div class="tags" aria-label="Topics">@foreach (var tag in article.Tags) { <span>@tag</span> }</div>
+    </article>
+}
+@code { [Parameter, EditorRequired] public IEnumerable<ArticleSummary> Articles { get; set; } = []; }

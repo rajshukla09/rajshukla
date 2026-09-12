@@ -1,0 +1,6 @@
+@page "/projects"
+@inject ContentService Content
+<PageMetadata Title="Open Source Projects" Description="Selected open-source .NET and AI agent projects from Raj Shukla." />
+<header class="page-intro shell"><p class="eyebrow">Open source</p><h1>Projects built to be explored.</h1><p>Companion implementations and practical examples for developers building agentic systems with .NET.</p></header>
+<section class="section shell project-list">@if (projects is null) { <p>Loading projects…</p> } else { @foreach (var project in projects) { <article><p class="eyebrow">Open-source repository</p><h2>@project.Title</h2><p>@project.Description</p><div class="tags">@foreach (var technology in project.Technologies) { <span>@technology</span> }</div><div class="actions"><a class="button" href="@project.GitHubUrl" target="_blank" rel="noopener">View on GitHub</a>@if (!string.IsNullOrWhiteSpace(project.ArticleUrl)) { <a class="text-link" href="@project.ArticleUrl">Read related article →</a> }</div></article> } }</section>
+@code { private IReadOnlyList<ProjectItem>? projects; protected override async Task OnInitializedAsync() => projects = await Content.GetProjectsAsync(); }

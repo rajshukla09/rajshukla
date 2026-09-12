@@ -1,0 +1,21 @@
+<article class="book-feature">
+    <div class="book-cover-placeholder" aria-label="Book cover placeholder">
+        <span>Building AI Agents</span><strong>.NET</strong><small>Part @Part</small>
+    </div>
+    <div>
+        <p class="eyebrow">Building AI Agents with .NET — Part @Part</p>
+        <h2>@Subtitle</h2>
+        <p>@Description</p>
+        <div class="actions">
+            <a class="button primary" href="@AmazonUrl" target="_blank" rel="noopener">View on Amazon</a>
+            <a class="button" href="@GitHubUrl" target="_blank" rel="noopener">Explore Source Code</a>
+        </div>
+    </div>
+</article>
+@code {
+    [Parameter] public int Part { get; set; }
+    [Parameter, EditorRequired] public string Subtitle { get; set; } = "";
+    [Parameter, EditorRequired] public string Description { get; set; } = "";
+    [Parameter, EditorRequired] public string AmazonUrl { get; set; } = "";
+    [Parameter, EditorRequired] public string GitHubUrl { get; set; } = "";
+}

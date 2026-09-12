@@ -1,0 +1,22 @@
+@inject NavigationManager Navigation
+<PageTitle>@Title — Raj Shukla</PageTitle>
+<HeadContent>
+    <meta name="description" content="@Description" />
+    <link rel="canonical" href="@CanonicalUrl" />
+    <meta property="og:type" content="@Type" />
+    <meta property="og:title" content="@Title" />
+    <meta property="og:description" content="@Description" />
+    <meta property="og:url" content="@CanonicalUrl" />
+    <meta property="og:site_name" content="Raj Shukla" />
+    @if (!string.IsNullOrWhiteSpace(Image)) { <meta property="og:image" content="@Navigation.ToAbsoluteUri(Image).ToString()" /> }
+    <meta name="twitter:card" content="@(string.IsNullOrWhiteSpace(Image) ? "summary" : "summary_large_image")" />
+    <meta name="twitter:title" content="@Title" />
+    <meta name="twitter:description" content="@Description" />
+</HeadContent>
+@code {
+    [Parameter, EditorRequired] public string Title { get; set; } = "";
+    [Parameter, EditorRequired] public string Description { get; set; } = "";
+    [Parameter] public string Type { get; set; } = "website";
+    [Parameter] public string? Image { get; set; }
+    private string CanonicalUrl => Navigation.Uri.Split('?', '#')[0];
+}

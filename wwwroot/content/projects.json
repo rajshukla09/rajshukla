@@ -1,0 +1,4 @@
+[
+  { "title": "Building AI Agents with .NET — Part 1 Companion Repository", "description": "Runnable C# examples for Microsoft Agent Framework, tool use, memory, orchestration, and production-ready agentic workflows.", "technologies": [".NET", "C#", "Microsoft Agent Framework", "Azure"], "githubUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1" },
+  { "title": "Building AI Agents with .NET — Part 2 Companion Repository", "description": "Advanced implementations covering multi-agent architecture, durable workflows, observability, and production context engineering.", "technologies": [".NET", "C#", "Agentic Architecture", "OpenTelemetry"], "githubUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2" }
+]

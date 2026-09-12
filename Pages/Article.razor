@@ -1,0 +1,18 @@
+@page "/articles/{Slug}"
+@inject ContentService Content
+@if (article is null && loaded) { <PageMetadata Title="Article not found" Description="The requested article could not be found." /><section class="page-intro shell"><h1>Article not found</h1><p><a href="articles">Return to all writing</a>.</p></section> }
+else if (article is not null)
+{
+    <PageMetadata Title="@article.Title" Description="@article.Description" Type="article" Image="@article.HeroImage" />
+    <article class="article-page shell">
+        <header><p class="eyebrow">@article.ContentType</p><h1>@article.Title</h1><p class="article-dek">@article.Description</p><div class="article-meta"><time datetime="@article.Published.ToString("yyyy-MM-dd")">@article.Published.ToString("MMMM d, yyyy")</time><span>By Raj Shukla</span></div><div class="tags">@foreach (var tag in article.Tags) { <span>@tag</span> }</div></header>
+        @if (!string.IsNullOrWhiteSpace(article.HeroImage)) { <img class="article-hero" src="@article.HeroImage" alt="" /> }
+        <div class="prose">@((MarkupString)html)</div>
+        @if (!string.IsNullOrWhiteSpace(article.SourceUrl)) { <p class="article-source"><a href="@article.SourceUrl" target="_blank" rel="noopener">Explore the related source code ↗</a></p> }
+    </article>
+}
+@code {
+    [Parameter] public string Slug { get; set; } = "";
+    private ArticleSummary? article; private string html = ""; private bool loaded;
+    protected override async Task OnParametersSetAsync() { article = await Content.GetArticleAsync(Slug); if (article is not null) html = await Content.GetRenderedMarkdownAsync(article); loaded = true; }
+}
