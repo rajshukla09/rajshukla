@@ -1,0 +1,12 @@
+{
+  "slug": "durable-agent-workflows",
+  "title": "Durable Agent Workflows",
+  "description": "Why long-running agent workflows need explicit state, recovery boundaries, and idempotent operations.",
+  "published": "2026-07-22",
+  "type": "Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Agents", "Durability", "Distributed Systems"],
+  "featured": false,
+  "sourceUrl": ""
+}

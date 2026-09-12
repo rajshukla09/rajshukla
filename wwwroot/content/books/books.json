@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Building AI Agents with .NET — Part 1",
+    "subtitle": "Microsoft Agent Framework, C#, and Production-Ready Agentic Workflows",
+    "description": "A practical guide to creating capable AI agents and dependable workflows with the Microsoft Agent Framework and .NET.",
+    "image": "/images/books/building-ai-agents-part-1.jpg",
+    "imageAlt": "Cover of Building AI Agents with .NET — Part 1",
+    "amazonUrl": "https://www.amazon.com/dp/B0HFMX5V9P",
+    "githubUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1",
+    "featured": true
+  },
+  {
+    "title": "Building AI Agents with .NET — Part 2",
+    "subtitle": "Advanced Agentic Architecture and Production Workflows",
+    "description": "A deeper treatment of orchestration, durability, observability, context engineering, and the architecture of production agentic systems.",
+    "image": "/images/books/building-ai-agents-part-2.jpg",
+    "imageAlt": "Cover of Building AI Agents with .NET — Part 2",
+    "amazonUrl": "https://www.amazon.com/dp/B0HJHDMCZB",
+    "githubUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2",
+    "featured": true
+  }
+]

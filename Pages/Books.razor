@@ -1,7 +1,14 @@
 @page "/books"
+@inject ContentService Content
+
 <PageMetadata Title="Books" Description="Books by Raj Shukla on building production-ready AI agents and advanced agentic workflows with .NET." />
 <header class="page-intro shell"><p class="eyebrow">Technical books</p><h1>Building AI Agents with .NET</h1><p>A practical series about designing agentic systems in C#—from core patterns to production architecture.</p></header>
 <section class="shell book-list">
-    <BookFeature Part="1" Subtitle="Microsoft Agent Framework, C#, and Production-Ready Agentic Workflows" Description="A practical guide to creating capable AI agents and dependable workflows with the Microsoft Agent Framework and .NET." AmazonUrl="https://www.amazon.com/dp/B0HFMX5V9P" GitHubUrl="https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1" />
-    <BookFeature Part="2" Subtitle="Advanced Agentic Architecture and Production Workflows" Description="A deeper treatment of orchestration, durability, observability, context engineering, and the architecture of production agentic systems." AmazonUrl="https://www.amazon.com/dp/B0HJHDMCZB" GitHubUrl="https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2" />
+    @if (books is null) { <p>Loading books…</p> }
+    else { @foreach (var book in books) { <BookFeature Book="book" /> } }
 </section>
+
+@code {
+    private IReadOnlyList<BookItem>? books;
+    protected override async Task OnInitializedAsync() => books = await Content.GetBooksAsync();
+}

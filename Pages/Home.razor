@@ -1,29 +1,63 @@
 @page "/"
 @inject ContentService Content
-<PageMetadata Title="Software Architect, Generative AI Engineer & Technical Author" Description="Raj Shukla writes about production AI architecture, .NET, Azure, AI agents, agentic workflows, and distributed systems." />
 
-<section class="hero shell">
-    <p class="eyebrow">Software Architect · Generative AI Engineer · Technical Author</p>
-    <h1>Raj Shukla</h1>
-    <p class="hero-lede">I design and build production systems at the intersection of <strong>.NET</strong>, <strong>Azure</strong>, and <strong>Generative AI</strong>.</p>
-    <p class="hero-copy">My work explores AI agents, Microsoft Agent Framework, agentic workflows, distributed systems, and the engineering discipline required to move intelligent systems into production.</p>
-    <div class="actions"><a class="button primary" href="articles">Read the writing</a><a class="text-link" href="about">More about Raj <span aria-hidden="true">→</span></a></div>
-</section>
+@if (profile is not null)
+{
+    <PageMetadata Title="@profile.Title" Description="@profile.Intro" Image="@profile.ProfileImage" />
+    <section class="hero shell">
+        @if (!string.IsNullOrWhiteSpace(profile.ProfileImage)) { <img class="profile-image" src="@profile.ProfileImage" alt="@profile.ProfileImageAlt" /> }
+        <p class="eyebrow">@profile.Title</p>
+        <h1>@profile.Name</h1>
+        <p class="hero-lede">@profile.HeroLead</p>
+        <p class="hero-copy">@profile.Intro</p>
+        <div class="actions"><a class="button primary" href="articles">Read the writing</a><a class="text-link" href="about">More about Raj <span aria-hidden="true">→</span></a></div>
+    </section>
+}
 
-<section class="section shell"><div class="section-heading"><p class="eyebrow">Selected work</p><h2>Featured Books</h2></div>
-    <div class="book-compact-grid">
-        <a href="books" class="book-compact"><span>01</span><div><strong>Building AI Agents with .NET — Part 1</strong><p>Microsoft Agent Framework, C#, and Production-Ready Agentic Workflows</p></div></a>
-        <a href="books" class="book-compact"><span>02</span><div><strong>Building AI Agents with .NET — Part 2</strong><p>Advanced Agentic Architecture and Production Workflows</p></div></a>
-    </div>
-</section>
+@if (books is not null)
+{
+    <section class="section shell"><div class="section-heading"><p class="eyebrow">Selected work</p><h2>Featured Books</h2></div>
+        <div class="book-compact-grid">
+            @foreach (var book in books.Where(book => book.Featured))
+            {
+                <a href="books" class="book-compact"><div><strong>@book.Title</strong><p>@book.Subtitle</p></div></a>
+            }
+        </div>
+    </section>
+}
 
 <section class="section shell"><div class="section-heading split"><div><p class="eyebrow">Ideas in practice</p><h2>Latest Writing</h2></div><a class="text-link" href="articles">View all writing →</a></div>
     @if (articles is null) { <p>Loading writing…</p> } else { <ArticleList Articles="articles.Take(3)" /> }
 </section>
 
-<section class="section shell"><div class="section-heading"><p class="eyebrow">Code and examples</p><h2>Featured Open Source</h2></div>
-    <div class="project-lines"><a href="https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1" target="_blank" rel="noopener"><strong>Building AI Agents with .NET — Part 1</strong><span>C# · .NET · Agent Framework ↗</span></a><a href="https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2" target="_blank" rel="noopener"><strong>Building AI Agents with .NET — Part 2</strong><span>C# · .NET · Agentic Architecture ↗</span></a></div>
-</section>
+@if (projects is { Count: > 0 })
+{
+    <section class="section shell"><div class="section-heading"><p class="eyebrow">Code and examples</p><h2>Featured Open Source</h2></div>
+        <div class="project-lines">@foreach (var project in projects) { <a href="@project.GitHubUrl" target="_blank" rel="noopener"><strong>@project.Title</strong><span>@string.Join(" · ", project.Technologies) ↗</span></a> }</div>
+    </section>
+}
 
-<section class="connect shell"><p class="eyebrow">Connect</p><h2>Follow the work.</h2><p>Find source code on <a href="https://github.com/rajshukla09" target="_blank" rel="me noopener">GitHub</a> and professional updates on <a href="https://www.linkedin.com/in/rajshukla09/" target="_blank" rel="me noopener">LinkedIn</a>.</p></section>
-@code { private IReadOnlyList<ArticleSummary>? articles; protected override async Task OnInitializedAsync() => articles = await Content.GetArticlesAsync(); }
+@if (profile is not null)
+{
+    <section class="connect shell"><p class="eyebrow">Connect</p><h2>Follow the work.</h2><p>Find source code on <a href="@profile.GitHubUrl" target="_blank" rel="me noopener">GitHub</a> and professional updates on <a href="@profile.LinkedInUrl" target="_blank" rel="me noopener">LinkedIn</a>.</p></section>
+}
+
+@code {
+    private SiteProfile? profile;
+    private IReadOnlyList<BookItem>? books;
+    private IReadOnlyList<ArticleSummary>? articles;
+    private IReadOnlyList<ProjectItem>? projects;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var profileTask = Content.GetProfileAsync();
+        var booksTask = Content.GetBooksAsync();
+        var articlesTask = Content.GetArticlesAsync();
+        var projectsTask = Content.GetProjectsAsync();
+        await Task.WhenAll(profileTask, booksTask, articlesTask, projectsTask);
+        profile = await profileTask;
+        books = await booksTask;
+        articles = await articlesTask;
+        projects = await projectsTask;
+    }
+}

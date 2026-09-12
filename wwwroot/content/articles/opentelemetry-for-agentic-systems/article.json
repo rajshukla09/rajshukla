@@ -1,0 +1,12 @@
+{
+  "slug": "opentelemetry-for-agentic-systems",
+  "title": "OpenTelemetry for Agentic Systems",
+  "description": "What to trace when a single request becomes a graph of model calls, tools, and delegated work.",
+  "published": "2026-08-12",
+  "type": "Technical Note",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["OpenTelemetry", ".NET", "Observability"],
+  "featured": false,
+  "sourceUrl": ""
+}

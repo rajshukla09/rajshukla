@@ -1,21 +1,23 @@
 <article class="book-feature">
-    <div class="book-cover-placeholder" aria-label="Book cover placeholder">
-        <span>Building AI Agents</span><strong>.NET</strong><small>Part @Part</small>
-    </div>
+    @if (!string.IsNullOrWhiteSpace(Book.Image))
+    {
+        <img class="book-cover" src="@Book.Image" alt="@Book.ImageAlt" loading="lazy" />
+    }
+    else
+    {
+        <div class="book-cover-placeholder" aria-hidden="true">
+            <span>@Book.Title</span><strong>.NET</strong><small>Technical book</small>
+        </div>
+    }
     <div>
-        <p class="eyebrow">Building AI Agents with .NET — Part @Part</p>
-        <h2>@Subtitle</h2>
-        <p>@Description</p>
+        <p class="eyebrow">@Book.Title</p>
+        <h2>@Book.Subtitle</h2>
+        <p>@Book.Description</p>
         <div class="actions">
-            <a class="button primary" href="@AmazonUrl" target="_blank" rel="noopener">View on Amazon</a>
-            <a class="button" href="@GitHubUrl" target="_blank" rel="noopener">Explore Source Code</a>
+            <a class="button primary" href="@Book.AmazonUrl" target="_blank" rel="noopener">View on Amazon</a>
+            <a class="button" href="@Book.GitHubUrl" target="_blank" rel="noopener">Explore Source Code</a>
         </div>
     </div>
 </article>
-@code {
-    [Parameter] public int Part { get; set; }
-    [Parameter, EditorRequired] public string Subtitle { get; set; } = "";
-    [Parameter, EditorRequired] public string Description { get; set; } = "";
-    [Parameter, EditorRequired] public string AmazonUrl { get; set; } = "";
-    [Parameter, EditorRequired] public string GitHubUrl { get; set; } = "";
-}
+
+@code { [Parameter, EditorRequired] public BookItem Book { get; set; } = null!; }

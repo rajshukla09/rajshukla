@@ -1,6 +1,12 @@
 @foreach (var article in Articles)
 {
     <article class="writing-item">
+        @if (!string.IsNullOrWhiteSpace(article.Image))
+        {
+            <a class="writing-image" href="articles/@article.Slug" tabindex="-1" aria-hidden="true">
+                <img src="@article.Image" alt="@article.ImageAlt" loading="lazy" />
+            </a>
+        }
         <div class="article-meta"><span>@article.ContentType</span><time datetime="@article.Published.ToString("yyyy-MM-dd")">@article.Published.ToString("MMMM d, yyyy")</time></div>
         <h2><a href="articles/@article.Slug">@article.Title</a></h2>
         <p>@article.Description</p>

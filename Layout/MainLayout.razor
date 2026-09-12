@@ -1,8 +1,9 @@
 @inherits LayoutComponentBase
+@inject ContentService Content
 
 <header class="site-header">
     <div class="shell header-inner">
-        <a class="wordmark" href="/" aria-label="Raj Shukla home">RS<span>.</span></a>
+        <a class="wordmark" href="/" aria-label="@(profile is null ? "Home" : $"{profile.Name} home")">RS<span>.</span></a>
         <nav aria-label="Primary navigation">
             <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
             <NavLink href="articles">Articles</NavLink>
@@ -17,10 +18,18 @@
 
 <footer class="site-footer">
     <div class="shell footer-inner">
-        <div><strong>Raj Shukla</strong><span>Built with Blazor and .NET</span></div>
-        <div class="footer-links">
-            <a href="https://github.com/rajshukla09" target="_blank" rel="me noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/rajshukla09/" target="_blank" rel="me noopener">LinkedIn</a>
-        </div>
+        <div><strong>@profile?.Name</strong><span>Built with Blazor and .NET</span></div>
+        @if (profile is not null)
+        {
+            <div class="footer-links">
+                <a href="@profile.GitHubUrl" target="_blank" rel="me noopener">GitHub</a>
+                <a href="@profile.LinkedInUrl" target="_blank" rel="me noopener">LinkedIn</a>
+            </div>
+        }
     </div>
 </footer>
+
+@code {
+    private SiteProfile? profile;
+    protected override async Task OnInitializedAsync() => profile = await Content.GetProfileAsync();
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "multi-agent-orchestration",
+  "title": "Multi-Agent Orchestration",
+  "description": "Choosing coordination patterns based on boundaries and evidence—not agent count.",
+  "published": "2026-07-04",
+  "type": "Technical Note",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Multi-Agent", "Orchestration", "Architecture"],
+  "featured": false,
+  "sourceUrl": ""
+}

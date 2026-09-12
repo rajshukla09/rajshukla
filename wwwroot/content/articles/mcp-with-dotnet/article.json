@@ -1,0 +1,12 @@
+{
+  "slug": "mcp-with-dotnet",
+  "title": "MCP with .NET",
+  "description": "A concise look at exposing tools and context to AI applications through Model Context Protocol.",
+  "published": "2026-06-18",
+  "type": "Technical Note",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["MCP", ".NET", "C#"],
+  "featured": false,
+  "sourceUrl": ""
+}

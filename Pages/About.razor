@@ -1,3 +1,20 @@
 @page "/about"
-<PageMetadata Title="About" Description="About Raj Shukla, software architect, Generative AI engineer, and author of Building AI Agents with .NET." />
-<article class="about-page shell"><p class="eyebrow">About</p><h1>Engineering intelligent systems for the real world.</h1><div class="about-copy"><p>Raj Shukla is a software architect, Generative AI engineer, and technical author focused on building dependable production systems with .NET, C#, and Azure.</p><p>His work spans distributed systems, AI agents, agentic workflows, context engineering, and the architecture needed to make Generative AI observable, durable, and useful beyond the prototype stage.</p><p>Raj is the author of the <em>Building AI Agents with .NET</em> series, which translates emerging agent patterns into practical engineering approaches for the Microsoft ecosystem.</p><p><a href="https://github.com/rajshukla09" target="_blank" rel="me noopener">GitHub</a> · <a href="https://www.linkedin.com/in/rajshukla09/" target="_blank" rel="me noopener">LinkedIn</a></p></div></article>
+@inject ContentService Content
+
+@if (profile is not null)
+{
+    <PageMetadata Title="About" Description="@profile.Intro" Image="@profile.ProfileImage" />
+    <article class="about-page shell">
+        <p class="eyebrow">About</p>
+        <h1>@profile.AboutHeading</h1>
+        <div class="about-copy">
+            @foreach (var paragraph in profile.Biography) { <p>@paragraph</p> }
+            <p><a href="@profile.GitHubUrl" target="_blank" rel="me noopener">GitHub</a> · <a href="@profile.LinkedInUrl" target="_blank" rel="me noopener">LinkedIn</a></p>
+        </div>
+    </article>
+}
+
+@code {
+    private SiteProfile? profile;
+    protected override async Task OnInitializedAsync() => profile = await Content.GetProfileAsync();
+}

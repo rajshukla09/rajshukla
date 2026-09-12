@@ -9,19 +9,42 @@ namespace rajshukla.Services;
 public sealed partial class ContentService(HttpClient http)
 {
     private IReadOnlyList<ArticleSummary>? _articles;
+    private SiteProfile? _profile;
+    private IReadOnlyList<BookItem>? _books;
+    private IReadOnlyList<ProjectItem>? _projects;
 
-    public async Task<IReadOnlyList<ArticleSummary>> GetArticlesAsync() =>
-        _articles ??= (await http.GetFromJsonAsync<List<ArticleSummary>>("content/articles.json") ?? [])
-            .OrderByDescending(article => article.Published).ToList();
+    public async Task<SiteProfile> GetProfileAsync() =>
+        _profile ??= await http.GetFromJsonAsync<SiteProfile>("content/site/profile.json")
+            ?? throw new InvalidOperationException("Site profile content could not be loaded.");
+
+    public async Task<IReadOnlyList<BookItem>> GetBooksAsync() =>
+        _books ??= await http.GetFromJsonAsync<List<BookItem>>("content/books/books.json") ?? [];
+
+    public async Task<IReadOnlyList<ArticleSummary>> GetArticlesAsync()
+    {
+        if (_articles is not null)
+            return _articles;
+
+        var slugs = await http.GetFromJsonAsync<List<string>>("content/articles/articles-index.json") ?? [];
+        var metadataTasks = slugs.Select(slug =>
+            http.GetFromJsonAsync<ArticleSummary>($"content/articles/{slug}/article.json"));
+        var articles = await Task.WhenAll(metadataTasks);
+
+        return _articles = articles
+            .Where(article => article is not null)
+            .Select(article => article!)
+            .OrderByDescending(article => article.Published)
+            .ToList();
+    }
 
     public async Task<ArticleSummary?> GetArticleAsync(string slug) =>
         (await GetArticlesAsync()).FirstOrDefault(article => string.Equals(article.Slug, slug, StringComparison.OrdinalIgnoreCase));
 
     public async Task<string> GetRenderedMarkdownAsync(ArticleSummary article) =>
-        RenderMarkdown(await http.GetStringAsync($"content/articles/{article.MarkdownFile}"));
+        RenderMarkdown(await http.GetStringAsync($"content/articles/{article.Slug}/content.md"));
 
     public async Task<IReadOnlyList<ProjectItem>> GetProjectsAsync() =>
-        await http.GetFromJsonAsync<List<ProjectItem>>("content/projects.json") ?? [];
+        _projects ??= await http.GetFromJsonAsync<List<ProjectItem>>("content/projects/projects.json") ?? [];
 
     private static string RenderMarkdown(string markdown)
     {
