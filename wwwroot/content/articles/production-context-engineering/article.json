@@ -1,12 +1,12 @@
 {
   "slug": "production-context-engineering",
-  "title": "Production Context Engineering",
-  "description": "Treating context as a designed, measured, and governed part of a production AI system.",
+  "title": "Production Context Engineering for AI Agents",
+  "description": "How to keep durable evidence large and agent context small with typed retrieval policies, explainable ranking, bounded context bundles, and controlled multi-agent handoffs.",
   "published": "2026-08-28",
-  "type": "Article",
+  "type": "Technical Note",
   "image": "",
   "imageAlt": "",
-  "tags": ["Context Engineering", "Generative AI", "Architecture"],
+  "tags": ["Context Engineering", "AI Agents", "Multi-Agent Systems", ".NET"],
   "featured": false,
-  "sourceUrl": ""
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2"
 }
