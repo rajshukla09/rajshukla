@@ -1,6 +1,6 @@
 # Raj Shukla — Technical Publication
 
-The personal technical website of **Raj Shukla** — Software Architect, Generative AI Engineer, and Technical Author. It is a static Blazor WebAssembly publication focused on .NET, Azure, Generative AI, AI agents, agentic workflows, distributed systems, and production AI architecture.
+The personal technical website of **Raj Shukla** — Software Architect · Generative AI Engineer · Technical Author. It is a static Blazor WebAssembly publication focused on .NET, Azure, Agentic AI, AI agents, agentic workflows, distributed systems, and production AI architecture.
 
 ## Technology
 

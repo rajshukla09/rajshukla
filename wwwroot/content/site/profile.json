@@ -1,16 +1,16 @@
 {
   "name": "Raj Shukla",
   "title": "Software Architect · Generative AI Engineer · Technical Author",
-  "intro": "My work explores AI agents, Microsoft Agent Framework, agentic workflows, distributed systems, and the engineering discipline required to move intelligent systems into production.",
-  "heroLead": "I design and build production systems at the intersection of .NET, Azure, and Generative AI.",
+  "intro": "My work focuses on Agentic AI, AI agents, agentic workflows, distributed systems, and the engineering discipline required to move intelligent systems into production.",
+  "heroLead": "I design and build production systems at the intersection of .NET, Azure, and Agentic AI.",
   "profileImage": "/images/profile/profile.jpg",
   "profileImageAlt": "Portrait of Raj Shukla",
   "githubUrl": "https://github.com/rajshukla09",
   "linkedInUrl": "https://www.linkedin.com/in/rajshukla09/",
   "aboutHeading": "Engineering intelligent systems for the real world.",
   "biography": [
-    "Raj Shukla is a software architect, Generative AI engineer, and technical author focused on building dependable production systems with .NET, C#, and Azure.",
-    "His work spans distributed systems, AI agents, agentic workflows, context engineering, and the architecture needed to make Generative AI observable, durable, and useful beyond the prototype stage.",
+    "Raj Shukla is a Software Architect · Generative AI Engineer · Technical Author specializing in dependable Agentic AI systems built with .NET, C#, and Azure.",
+    "His work spans distributed systems, AI agents, agentic workflows, context engineering, and the architecture needed to make agentic systems observable, durable, and useful beyond the prototype stage.",
     "Raj is the author of the Building AI Agents with .NET series, which translates emerging agent patterns into practical engineering approaches for the Microsoft ecosystem."
   ]
 }

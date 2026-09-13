@@ -3,12 +3,11 @@
 
 <header class="site-header">
     <div class="shell header-inner">
-        <a class="wordmark" href="/" aria-label="@(profile is null ? "Home" : $"{profile.Name} home")">RS<span>.</span></a>
+        <a class="wordmark" href="/" aria-label="@(profile is null ? "Home" : $"{profile.Name} home")"><img src="icon.png" alt="" width="88" height="46" style="display:block;object-fit:cover;object-position:center" /></a>
         <nav aria-label="Primary navigation">
             <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
             <NavLink href="articles">Articles</NavLink>
             <NavLink href="books">Books</NavLink>
-            <NavLink href="projects">Projects</NavLink>
             <NavLink href="about">About</NavLink>
         </nav>
     </div>
