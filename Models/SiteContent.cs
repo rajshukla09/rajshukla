@@ -12,7 +12,10 @@ public sealed record ArticleSummary(
     string? ImageAlt,
     string[] Tags,
     bool Featured,
-    string? SourceUrl);
+    string? SourceUrl,
+    string? Book = null,
+    int? SourceChapter = null,
+    string? SourceChapterTitle = null);
 
 public sealed record SiteProfile(
     string Name,
@@ -27,6 +30,7 @@ public sealed record SiteProfile(
     string[] Biography);
 
 public sealed record BookItem(
+    string Slug,
     string Title,
     string Subtitle,
     string Description,
@@ -34,7 +38,10 @@ public sealed record BookItem(
     string? ImageAlt,
     string AmazonUrl,
     string GitHubUrl,
-    bool Featured);
+    bool Featured,
+    BookChapter[] Chapters);
+
+public sealed record BookChapter(int Number, string Title);
 
 public sealed record ProjectItem(string Title, string Description, string[] Technologies, string GitHubUrl,
     string? ArticleUrl = null, string? Screenshot = null);

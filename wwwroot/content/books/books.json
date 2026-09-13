@@ -1,5 +1,6 @@
 [
   {
+    "slug": "part-1",
     "title": "Building AI Agents with .NET — Part 1",
     "subtitle": "Microsoft Agent Framework, C#, and Production-Ready Agentic Workflows",
     "description": "A practical guide to creating capable AI agents and dependable workflows with the Microsoft Agent Framework and .NET.",
@@ -7,9 +8,22 @@
     "imageAlt": "Cover of Building AI Agents with .NET — Part 1",
     "amazonUrl": "https://www.amazon.com/dp/B0HFMX5V9P",
     "githubUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1",
-    "featured": true
+    "featured": true,
+    "chapters": [
+      { "number": 1, "title": "Build Your First Agent" },
+      { "number": 2, "title": "Structured Outputs with Microsoft Agent Framework" },
+      { "number": 3, "title": "Conversations That Continue" },
+      { "number": 4, "title": "Managing Agent Sessions" },
+      { "number": 5, "title": "Persisting Conversations and State" },
+      { "number": 6, "title": "Adding AI Tools to the Travel Agent" },
+      { "number": 7, "title": "Building Memory-Aware Agents" },
+      { "number": 8, "title": "Adding Context Providers" },
+      { "number": 9, "title": "Reliable Tool Execution" },
+      { "number": 10, "title": "Agent Workflows with Microsoft Agent Framework" }
+    ]
   },
   {
+    "slug": "part-2",
     "title": "Building AI Agents with .NET — Part 2",
     "subtitle": "Advanced Agentic Architecture and Production Workflows",
     "description": "A deeper treatment of orchestration, durability, observability, context engineering, and the architecture of production agentic systems.",
@@ -17,6 +31,17 @@
     "imageAlt": "Cover of Building AI Agents with .NET — Part 2",
     "amazonUrl": "https://www.amazon.com/dp/B0HJHDMCZB",
     "githubUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2",
-    "featured": true
+    "featured": true,
+    "chapters": [
+      { "number": 1, "title": "Human-in-the-Loop Workflows with Microsoft Agent Framework" },
+      { "number": 2, "title": "Enterprise Knowledge Assistant using MCP" },
+      { "number": 3, "title": "Dynamic Multi-Agent Orchestration" },
+      { "number": 4, "title": "Magentic Orchestration" },
+      { "number": 5, "title": "Multi-Agent Orchestration Patterns with MAF" },
+      { "number": 6, "title": "Durable Purchase Approval" },
+      { "number": 7, "title": "OpenTelemetry for Workflows" },
+      { "number": 8, "title": "Agent-to-Agent (A2A)" },
+      { "number": 9, "title": "Production-Ready Context Engineering for Multi-Agent Systems" }
+    ]
   }
 ]

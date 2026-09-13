@@ -1,0 +1,100 @@
+@page "/books/{BookSlug}"
+@inject ContentService Content
+
+@if (book is null && loaded)
+{
+    <PageMetadata Title="Book not found" Description="The requested book could not be found." />
+    <section class="page-intro shell">
+        <p class="eyebrow">Technical books</p>
+        <h1>Book not found</h1>
+        <p><a href="books">Return to all books</a>.</p>
+    </section>
+}
+else if (book is not null)
+{
+    <PageMetadata Title="@book.Title" Description="@book.Description" Image="@book.Image" />
+    <main class="book-detail-page">
+        <header class="book-detail-intro shell">
+            <p class="eyebrow">Book companion</p>
+            <h1>@book.Title</h1>
+            <div class="book-detail-feature">
+                @if (!string.IsNullOrWhiteSpace(book.Image))
+                {
+                    <img class="book-cover" src="@book.Image" alt="@book.ImageAlt" />
+                }
+                <div>
+                    <h2>@book.Subtitle</h2>
+                    <p>@book.Description</p>
+                    <div class="actions">
+                        <a class="button primary" href="@book.AmazonUrl" target="_blank" rel="noopener">View on Amazon</a>
+                        <a class="button" href="@book.GitHubUrl" target="_blank" rel="noopener">Explore Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="book-chapters shell" aria-labelledby="chapters-heading">
+            <div class="book-chapters-heading">
+                <p class="eyebrow">Chapters &amp; technical writing</p>
+                <h2 id="chapters-heading">Explore the book, chapter by chapter.</h2>
+            </div>
+
+            <div class="chapter-list">
+                @foreach (var chapter in book.Chapters.OrderBy(chapter => chapter.Number))
+                {
+                    var chapterArticles = ArticlesFor(chapter.Number);
+                    <section class="chapter-row">
+                        <div class="chapter-number">@chapter.Number.ToString("00")</div>
+                        <div class="chapter-content">
+                            <h3>@chapter.Title</h3>
+                            @if (chapterArticles.Count > 0)
+                            {
+                                <div class="chapter-articles">
+                                    @foreach (var chapterArticle in chapterArticles)
+                                    {
+                                        <article class="chapter-article">
+                                            <p class="chapter-article-type">@chapterArticle.ContentType</p>
+                                            <h4>@chapterArticle.Title</h4>
+                                            <p>@chapterArticle.Description</p>
+                                            <a class="text-link" href="@($"articles/{chapterArticle.Slug}")">Read article →</a>
+                                        </article>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="chapter-coming-soon">Technical articles coming soon</p>
+                            }
+                        </div>
+                    </section>
+                }
+            </div>
+        </section>
+    </main>
+}
+
+@code {
+    [Parameter] public string BookSlug { get; set; } = "";
+
+    private BookItem? book;
+    private IReadOnlyList<ArticleSummary> articles = [];
+    private bool loaded;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var bookTask = Content.GetBookAsync(BookSlug);
+        var articlesTask = Content.GetArticlesAsync();
+        await Task.WhenAll(bookTask, articlesTask);
+        book = await bookTask;
+        articles = await articlesTask;
+        loaded = true;
+    }
+
+    private IReadOnlyList<ArticleSummary> ArticlesFor(int chapterNumber) =>
+        articles
+            .Where(article =>
+                string.Equals(article.Book, book?.Slug, StringComparison.OrdinalIgnoreCase) &&
+                article.SourceChapter == chapterNumber)
+            .OrderByDescending(article => article.Published)
+            .ToList();
+}

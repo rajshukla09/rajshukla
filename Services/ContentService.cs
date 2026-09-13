@@ -20,6 +20,10 @@ public sealed partial class ContentService(HttpClient http)
     public async Task<IReadOnlyList<BookItem>> GetBooksAsync() =>
         _books ??= await http.GetFromJsonAsync<List<BookItem>>("content/books/books.json") ?? [];
 
+    public async Task<BookItem?> GetBookAsync(string slug) =>
+        (await GetBooksAsync()).FirstOrDefault(book =>
+            string.Equals(book.Slug, slug, StringComparison.OrdinalIgnoreCase));
+
     public async Task<IReadOnlyList<ArticleSummary>> GetArticlesAsync()
     {
         if (_articles is not null)

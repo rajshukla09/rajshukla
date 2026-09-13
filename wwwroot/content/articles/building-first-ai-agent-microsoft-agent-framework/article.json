@@ -1,0 +1,15 @@
+{
+  "slug": "building-first-ai-agent-microsoft-agent-framework",
+  "title": "Building Your First AI Agent with Microsoft Agent Framework and .NET",
+  "description": "Build a clean ASP.NET Core agent boundary by adapting an Azure OpenAI chat client into an instructed Microsoft Agent Framework AIAgent.",
+  "published": "2026-09-13",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Azure OpenAI", "AI Agents"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-01",
+  "book": "part-1",
+  "sourceChapter": 1,
+  "sourceChapterTitle": "Build Your First Agent"
+}

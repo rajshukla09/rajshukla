@@ -36,3 +36,31 @@ body{overflow-x:hidden}h1:focus{outline:none}
 .about-profile-image{display:block;width:100%;aspect-ratio:1;object-fit:cover}
 .about-copy{max-width:700px;margin:0;font-size:1.18rem}
 @media(max-width:760px){.page-intro,.article-page{padding-top:clamp(56px,12vw,76px)}.page-intro{padding-bottom:clamp(48px,10vw,64px)}.page-intro h1,.article-intro h1{font-size:clamp(2.55rem,11vw,3.6rem)}.about-body{grid-template-columns:1fr;gap:36px;padding-top:48px}.about-profile-image{width:min(240px,68vw)}.about-copy{font-size:1.1rem}}
+
+/* Book companion pages retain the publication layout and use rows, not dashboard cards. */
+.book-chapters-link{color:var(--muted);margin-left:2px}
+.book-detail-page{padding-bottom:clamp(84px,9vw,112px)}
+.book-detail-intro{padding-top:clamp(72px,8vw,108px);padding-bottom:clamp(64px,8vw,92px)}
+.book-detail-intro>h1{max-width:920px;font-size:clamp(2.8rem,5vw,4.6rem);font-weight:400;margin:.18em 0 .75em;overflow-wrap:break-word}
+.book-detail-feature{display:grid;grid-template-columns:230px minmax(0,680px);align-items:center;gap:clamp(42px,7vw,88px)}
+.book-detail-feature>div{min-width:0}.book-detail-feature h2{font-size:clamp(1.9rem,3.5vw,3rem);font-weight:400;margin-bottom:.45em;overflow-wrap:break-word}
+.book-detail-feature>div>p{color:var(--muted);max-width:640px}
+.book-chapters{border-top:1px solid var(--line);padding-top:clamp(54px,7vw,80px)}
+.book-chapters-heading{max-width:760px;margin-bottom:clamp(38px,5vw,58px)}
+.book-chapters-heading h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:400;margin:.2em 0 0}
+.chapter-list{border-top:1px solid var(--line)}
+.chapter-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:clamp(24px,4vw,52px);padding:clamp(30px,4vw,46px) 0;border-bottom:1px solid var(--line)}
+.chapter-number{color:var(--accent);font:500 .82rem/1.5 var(--mono);padding-top:.35em}
+.chapter-content h3{font-size:clamp(1.45rem,2.5vw,2rem);font-weight:500;margin:0}
+.chapter-coming-soon{color:var(--muted);font-size:.88rem;margin:14px 0 0}
+.chapter-articles{margin-top:24px}
+.chapter-article{max-width:760px;padding:24px 0;border-top:1px solid color-mix(in srgb,var(--line) 75%,transparent)}
+.chapter-article:first-child{padding-top:0;border-top:0}
+.chapter-article-type{color:var(--accent);font:500 .68rem/1.4 var(--mono);letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px}
+.chapter-article h4{font:500 clamp(1.25rem,2.1vw,1.65rem)/1.25 var(--serif);letter-spacing:-.015em;margin:0 0 10px}
+.chapter-article>p:not(.chapter-article-type){color:var(--muted);max-width:680px;margin-bottom:12px}
+.article-book-context{max-width:700px;margin:50px auto 0;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+.article-book-context span{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;margin-right:6px}
+.article-book-context a{text-decoration:none;color:var(--ink)}
+.article-book-context a:hover{color:var(--accent)}
+@media(max-width:760px){.book-chapters-link{flex-basis:100%;margin-top:2px}.book-detail-intro{padding-top:clamp(56px,12vw,76px);padding-bottom:56px}.book-detail-intro>h1{font-size:clamp(2.55rem,11vw,3.6rem)}.book-detail-feature{grid-template-columns:1fr;gap:40px}.book-detail-feature .book-cover{width:min(230px,68vw)}.chapter-row{grid-template-columns:44px minmax(0,1fr);gap:18px}.chapter-article{padding-block:20px}}

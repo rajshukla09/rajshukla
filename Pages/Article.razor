@@ -8,11 +8,23 @@ else if (article is not null)
         <header class="article-intro"><p class="eyebrow">@article.ContentType</p><h1>@article.Title</h1><p class="article-dek">@article.Description</p><div class="article-meta"><time datetime="@article.Published.ToString("yyyy-MM-dd")">@article.Published.ToString("MMMM d, yyyy")</time><span>By Raj Shukla</span></div><div class="tags">@foreach (var tag in article.Tags) { <span>@tag</span> }</div></header>
         @if (!string.IsNullOrWhiteSpace(article.Image)) { <img class="article-hero" src="@article.Image" alt="@article.ImageAlt" /> }
         <div class="prose">@((MarkupString)html)</div>
+        @if (sourceBook is not null && article.SourceChapter is not null)
+        {
+            <p class="article-book-context"><span>From:</span> <a href="@($"books/{sourceBook.Slug}")">@sourceBook.Title · Chapter @article.SourceChapter: @article.SourceChapterTitle</a></p>
+        }
         @if (!string.IsNullOrWhiteSpace(article.SourceUrl)) { <p class="article-source"><a href="@article.SourceUrl" target="_blank" rel="noopener">Explore the related source code ↗</a></p> }
     </article>
 }
 @code {
     [Parameter] public string Slug { get; set; } = "";
-    private ArticleSummary? article; private string html = ""; private bool loaded;
-    protected override async Task OnParametersSetAsync() { article = await Content.GetArticleAsync(Slug); if (article is not null) html = await Content.GetRenderedMarkdownAsync(article); loaded = true; }
+    private ArticleSummary? article; private BookItem? sourceBook; private string html = ""; private bool loaded;
+    protected override async Task OnParametersSetAsync()
+    {
+        article = await Content.GetArticleAsync(Slug);
+        sourceBook = article?.Book is { Length: > 0 } bookSlug
+            ? await Content.GetBookAsync(bookSlug)
+            : null;
+        if (article is not null) html = await Content.GetRenderedMarkdownAsync(article);
+        loaded = true;
+    }
 }
