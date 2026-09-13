@@ -1,12 +1,12 @@
 {
   "slug": "opentelemetry-for-agentic-systems",
   "title": "OpenTelemetry for Agentic Systems",
-  "description": "What to trace when a single request becomes a graph of model calls, tools, and delegated work.",
+  "description": "Tracing Microsoft Agent Framework workflows through ASP.NET Core, native MAF activities, OTLP export, safe correlation, and production telemetry boundaries.",
   "published": "2026-08-12",
   "type": "Technical Note",
   "image": "",
   "imageAlt": "",
-  "tags": ["OpenTelemetry", ".NET", "Observability"],
+  "tags": ["OpenTelemetry", "Microsoft Agent Framework", "OTLP", ".NET"],
   "featured": false,
-  "sourceUrl": ""
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2"
 }

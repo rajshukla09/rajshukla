@@ -1,12 +1,12 @@
 {
   "slug": "durable-agent-workflows",
-  "title": "Durable Agent Workflows",
-  "description": "Why long-running agent workflows need explicit state, recovery boundaries, and idempotent operations.",
+  "title": "Durable Agent Workflows with Microsoft Agent Framework",
+  "description": "How Microsoft Agent Framework and Durable Task preserve workflow state, resume approval waits after host recreation, and protect external effects with idempotency.",
   "published": "2026-07-22",
   "type": "Article",
   "image": "",
   "imageAlt": "",
-  "tags": ["Agents", "Durability", "Distributed Systems"],
+  "tags": ["Microsoft Agent Framework", "Durable Workflows", "Durable Task", ".NET"],
   "featured": false,
-  "sourceUrl": ""
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2"
 }

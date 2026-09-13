@@ -1,12 +1,12 @@
 {
   "slug": "mcp-with-dotnet",
   "title": "MCP with .NET",
-  "description": "A concise look at exposing tools and context to AI applications through Model Context Protocol.",
+  "description": "A practical guide to exposing, discovering, validating, and invoking MCP tools from a .NET application using Microsoft Agent Framework.",
   "published": "2026-06-18",
-  "type": "Technical Note",
+  "type": "Article",
   "image": "",
   "imageAlt": "",
-  "tags": ["MCP", ".NET", "C#"],
+  "tags": ["Model Context Protocol", ".NET", "Microsoft Agent Framework", "Agent Tools"],
   "featured": false,
-  "sourceUrl": ""
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2"
 }

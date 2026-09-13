@@ -1,12 +1,12 @@
 {
   "slug": "multi-agent-orchestration",
-  "title": "Multi-Agent Orchestration",
-  "description": "Choosing coordination patterns based on boundaries and evidence—not agent count.",
+  "title": "Multi-Agent Orchestration with Microsoft Agent Framework",
+  "description": "A practical guide to sequential, concurrent, handoff, and group-chat orchestration using specialized Microsoft Agent Framework agents.",
   "published": "2026-07-04",
-  "type": "Technical Note",
+  "type": "Article",
   "image": "",
   "imageAlt": "",
-  "tags": ["Multi-Agent", "Orchestration", "Architecture"],
+  "tags": ["Microsoft Agent Framework", "Multi-Agent Systems", "Agentic Workflows", ".NET"],
   "featured": false,
-  "sourceUrl": ""
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2"
 }

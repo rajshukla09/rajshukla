@@ -1,12 +1,12 @@
 {
   "slug": "human-in-the-loop-agent-workflows",
   "title": "Human-in-the-Loop Workflows with Microsoft Agent Framework",
-  "description": "Designing approval and review points as first-class workflow states instead of UI interruptions.",
+  "description": "Designing policy-driven human review, typed approval boundaries, and persisted continuation in Microsoft Agent Framework workflows.",
   "published": "2026-05-29",
   "type": "Article",
   "image": "",
   "imageAlt": "",
-  "tags": ["Microsoft Agent Framework", "Human in the Loop", ".NET"],
+  "tags": ["Microsoft Agent Framework", "Human-in-the-Loop", "Agentic Workflows", "C#"],
   "featured": false,
-  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1"
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2"
 }

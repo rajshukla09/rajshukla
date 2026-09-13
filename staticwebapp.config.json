@@ -1,0 +1,18 @@
+{
+  // This setting tells Azure Static Web Apps to rewrite all navigation requests
+  // to `index.html`, which is common for single-page applications (SPA).
+  "navigationFallback": {
+    "rewrite": "/index.html", // Route all unmatched paths to `index.html`.
+
+    // The `exclude` array prevents the rewrite for specific directories
+    // where your static assets like images, CSS, and JS files are stored.
+    // This ensures that requests to these files are not redirected to `index.html`
+    // and can instead serve the actual static assets.
+    "exclude": [
+      "/img/*", // Excludes all files in the `img` directory from rewrite.
+      "/css/*", // Excludes all files in the `css` directory from rewrite.
+      "/js/*" // Excludes all files in the `js` directory from rewrite.
+    ]
+  }
+}
+
