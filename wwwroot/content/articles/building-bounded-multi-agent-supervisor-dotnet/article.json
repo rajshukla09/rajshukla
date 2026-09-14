@@ -1,0 +1,14 @@
+{
+  "slug": "building-bounded-multi-agent-supervisor-dotnet",
+  "title": "Building a Bounded Multi-Agent Supervisor in .NET",
+  "description": "Build a dynamic incident-investigation supervisor that delegates to narrow specialist agents while application code owns context, budgets, failures, and final synthesis.",
+  "published": "2026-07-02",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Multi-Agent Systems", "Agent Orchestration", "Incident Investigation"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-03",
+  "book": "part-2",
+  "sourceChapter": 3
+}

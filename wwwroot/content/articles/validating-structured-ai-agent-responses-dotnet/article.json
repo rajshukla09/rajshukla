@@ -1,0 +1,14 @@
+{
+  "slug": "validating-structured-ai-agent-responses-dotnet",
+  "title": "Validating Structured AI Agent Responses in .NET",
+  "description": "Use typed Microsoft Agent Framework responses and deterministic C# validation to stop structurally valid but unusable AI output at the application boundary.",
+  "published": "2026-01-26",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Structured Outputs", "AI Agents", "Validation"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-02",
+  "book": "part-1",
+  "sourceChapter": 2
+}

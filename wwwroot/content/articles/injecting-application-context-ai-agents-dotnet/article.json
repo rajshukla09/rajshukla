@@ -1,0 +1,14 @@
+{
+  "slug": "injecting-application-context-ai-agents-dotnet",
+  "title": "Injecting Application Context into AI Agents Without Rewriting User Messages",
+  "description": "Use Microsoft Agent Framework context providers and invocation-scoped state to supply memory and runtime data without disguising application context as user-authored text.",
+  "published": "2026-04-20",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Context Engineering", "AI Context Providers", "Agent Memory"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-08",
+  "book": "part-1",
+  "sourceChapter": 8
+}

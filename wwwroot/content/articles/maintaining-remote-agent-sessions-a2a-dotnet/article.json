@@ -1,0 +1,14 @@
+{
+  "slug": "maintaining-remote-agent-sessions-a2a-dotnet",
+  "title": "Maintaining Remote Agent Sessions over A2A in .NET",
+  "description": "Discover a remote Agent Card, adapt it to a Microsoft Agent Framework agent, and reuse A2A AgentSession context while keeping service and session boundaries explicit.",
+  "published": "2026-08-24",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["A2A", ".NET", "Microsoft Agent Framework", "AgentSession", "Distributed Agents"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-08",
+  "book": "part-2",
+  "sourceChapter": 8
+}

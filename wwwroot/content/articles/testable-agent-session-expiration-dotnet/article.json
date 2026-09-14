@@ -1,0 +1,14 @@
+{
+  "slug": "testable-agent-session-expiration-dotnet",
+  "title": "Designing Testable Agent Session Expiration in .NET",
+  "description": "Build explicit idle and expiration policies around Microsoft Agent Framework sessions using TimeProvider, validated options, and per-conversation synchronization.",
+  "published": "2026-02-23",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Agent Sessions", "TimeProvider", "Concurrency"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-04",
+  "book": "part-1",
+  "sourceChapter": 4
+}

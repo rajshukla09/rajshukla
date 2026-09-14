@@ -1,0 +1,14 @@
+{
+  "slug": "projecting-magentic-workflow-events-dotnet",
+  "title": "Projecting Native Magentic Workflow Events into Auditable .NET State",
+  "description": "Turn observable Microsoft Agent Framework Magentic workflow envelopes into safe plans, delegations, revisions, and persisted audit state without inventing private orchestration details.",
+  "published": "2026-07-16",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Magentic Orchestration", "Workflow Observability", "Auditability"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-04",
+  "book": "part-2",
+  "sourceChapter": 4
+}

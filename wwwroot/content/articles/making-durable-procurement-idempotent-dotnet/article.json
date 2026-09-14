@@ -1,0 +1,14 @@
+{
+  "slug": "making-durable-procurement-idempotent-dotnet",
+  "title": "Making Durable Procurement Idempotent in .NET",
+  "description": "Protect durable purchase workflows from replay and repeated approvals with a business-owned idempotency key, a unique database constraint, and honest completion semantics.",
+  "published": "2026-08-02",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": [".NET", "Durable Workflows", "Idempotency", "Microsoft Agent Framework", "EF Core"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-06",
+  "book": "part-2",
+  "sourceChapter": 6
+}

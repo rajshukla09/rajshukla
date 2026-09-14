@@ -1,0 +1,14 @@
+{
+  "slug": "persisting-agent-framework-sessions-dotnet",
+  "title": "Persisting Microsoft Agent Framework Sessions Safely in .NET",
+  "description": "Preserve conversational continuity across restarts with opaque AgentSession serialization, dedicated persistence documents, atomic file replacement, and defensive recovery.",
+  "published": "2026-03-09",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Agent Sessions", "Persistence", "Reliability"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-05",
+  "book": "part-1",
+  "sourceChapter": 5
+}

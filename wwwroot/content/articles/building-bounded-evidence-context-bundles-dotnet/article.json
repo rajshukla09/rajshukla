@@ -1,0 +1,14 @@
+{
+  "slug": "building-bounded-evidence-context-bundles-dotnet",
+  "title": "Building Bounded Evidence Context Bundles for AI Agents in .NET",
+  "description": "Keep growing investigation evidence out of unbounded prompts with deterministic filtering, explainable ranking, deduplication, and character budgets in .NET.",
+  "published": "2026-09-10",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Context Engineering", ".NET", "AI Agents", "Retrieval", "Multi-Agent Systems"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-09",
+  "book": "part-2",
+  "sourceChapter": 9
+}

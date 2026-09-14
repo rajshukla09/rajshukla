@@ -1,0 +1,14 @@
+{
+  "slug": "typed-message-boundaries-ai-agent-workflows-dotnet",
+  "title": "Designing Typed Message Boundaries for AI Agent Workflows in .NET",
+  "description": "Turn hidden sequential coordination into an explicit Microsoft Agent Framework workflow whose executors exchange immutable typed messages and own distinct failure boundaries.",
+  "published": "2026-05-18",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Agent Workflows", "Workflow Design", "Typed Messages"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-10",
+  "book": "part-1",
+  "sourceChapter": 10
+}

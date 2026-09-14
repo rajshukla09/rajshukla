@@ -1,0 +1,14 @@
+{
+  "slug": "controlling-model-selected-mcp-tool-execution-dotnet",
+  "title": "Controlling Model-Selected MCP Tool Execution in .NET",
+  "description": "Place deterministic catalog, argument, and invocation-budget controls between model-selected MCP tools and protocol execution in a .NET agent application.",
+  "published": "2026-06-26",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Model Context Protocol", ".NET", "Microsoft Agent Framework", "AI Security", "Tool Execution"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-02",
+  "book": "part-2",
+  "sourceChapter": 2
+}

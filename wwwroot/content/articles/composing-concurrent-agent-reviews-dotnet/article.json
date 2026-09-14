@@ -1,0 +1,14 @@
+{
+  "slug": "composing-concurrent-agent-reviews-dotnet",
+  "title": "Composing Concurrent Agent Reviews with a Separate Decision Workflow in .NET",
+  "description": "Use Microsoft Agent Framework fan-out/fan-in for independent reviews, then pass collected findings to a separate decision workflow with explicit boundaries and honest metrics.",
+  "published": "2026-07-22",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Concurrent Agents", "Agent Workflows", "Fan-Out Fan-In"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-05",
+  "book": "part-2",
+  "sourceChapter": 5
+}

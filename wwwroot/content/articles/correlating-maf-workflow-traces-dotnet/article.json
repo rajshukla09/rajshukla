@@ -1,0 +1,14 @@
+{
+  "slug": "correlating-maf-workflow-traces-dotnet",
+  "title": "Correlating HTTP Requests with Native MAF Workflow Traces in .NET",
+  "description": "Correlate ASP.NET Core requests with native Microsoft Agent Framework workflow activities, inspect executor paths, and keep release content out of trace attributes.",
+  "published": "2026-08-20",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["OpenTelemetry", ".NET", "Microsoft Agent Framework", "Workflow Observability", "Distributed Tracing"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-07",
+  "book": "part-2",
+  "sourceChapter": 7
+}

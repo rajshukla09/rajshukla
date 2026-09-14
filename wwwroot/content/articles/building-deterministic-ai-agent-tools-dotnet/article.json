@@ -1,0 +1,14 @@
+{
+  "slug": "building-deterministic-ai-agent-tools-dotnet",
+  "title": "Building Deterministic AI Agent Tools with Microsoft Agent Framework and .NET",
+  "description": "Give an AI agent application-owned capabilities with typed C# functions, explicit validation, model-facing descriptions, and request-scoped execution tracing.",
+  "published": "2026-03-23",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "AI Tools", "Function Calling", "Observability"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-06",
+  "book": "part-1",
+  "sourceChapter": 6
+}

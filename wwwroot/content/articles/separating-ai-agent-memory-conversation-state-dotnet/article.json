@@ -1,0 +1,14 @@
+{
+  "slug": "separating-ai-agent-memory-conversation-state-dotnet",
+  "title": "Separating Long-Term AI Agent Memory from Conversation State in .NET",
+  "description": "Design identity-partitioned AI agent memory that persists explicit user preferences across conversations without turning AgentSession or conversation history into a second profile store.",
+  "published": "2026-04-06",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "AI Agent Memory", "Agent Sessions", "Privacy"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-07",
+  "book": "part-1",
+  "sourceChapter": 7
+}

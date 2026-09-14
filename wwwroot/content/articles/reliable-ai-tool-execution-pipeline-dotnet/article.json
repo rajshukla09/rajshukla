@@ -1,0 +1,14 @@
+{
+  "slug": "reliable-ai-tool-execution-pipeline-dotnet",
+  "title": "Building a Reliable AI Tool Execution Pipeline in .NET",
+  "description": "Centralize retry classification, timeouts, caller cancellation, failure translation, logging, and tracing for both application-mandated and model-selected AI tool calls.",
+  "published": "2026-05-04",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "AI Tools", "Resilience", "Observability"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-09",
+  "book": "part-1",
+  "sourceChapter": 9
+}

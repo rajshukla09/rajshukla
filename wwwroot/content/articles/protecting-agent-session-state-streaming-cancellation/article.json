@@ -1,0 +1,14 @@
+{
+  "slug": "protecting-agent-session-state-streaming-cancellation",
+  "title": "Protecting Agent Session State During Streaming and Cancellation",
+  "description": "Clone and commit Microsoft Agent Framework sessions so cancelled or failed streaming turns cannot become the state behind the next conversation request.",
+  "published": "2026-02-09",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "Agent Sessions", "Streaming", "Cancellation"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-1/tree/main/chapter-03",
+  "book": "part-1",
+  "sourceChapter": 3
+}

@@ -11,15 +11,15 @@
     "featured": true,
     "chapters": [
       { "number": 1, "title": "Build Your First Agent" },
-      { "number": 2, "title": "Structured Outputs with Microsoft Agent Framework" },
-      { "number": 3, "title": "Conversations That Continue" },
+      { "number": 2, "title": "Structured Agent Responses" },
+      { "number": 3, "title": "Building Multi-Turn Conversations" },
       { "number": 4, "title": "Managing Agent Sessions" },
       { "number": 5, "title": "Persisting Conversations and State" },
-      { "number": 6, "title": "Adding AI Tools to the Travel Agent" },
+      { "number": 6, "title": "Adding AI Tools" },
       { "number": 7, "title": "Building Memory-Aware Agents" },
       { "number": 8, "title": "Adding Context Providers" },
       { "number": 9, "title": "Reliable Tool Execution" },
-      { "number": 10, "title": "Agent Workflows with Microsoft Agent Framework" }
+      { "number": 10, "title": "Agent Workflows" }
     ]
   },
   {
@@ -33,8 +33,8 @@
     "githubUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2",
     "featured": true,
     "chapters": [
-      { "number": 1, "title": "Human-in-the-Loop Workflows with Microsoft Agent Framework" },
-      { "number": 2, "title": "Enterprise Knowledge Assistant using MCP" },
+      { "number": 1, "title": "Human-in-the-Loop Workflows" },
+      { "number": 2, "title": "Enterprise Knowledge Assistant with MCP" },
       { "number": 3, "title": "Dynamic Multi-Agent Orchestration" },
       { "number": 4, "title": "Magentic Orchestration" },
       { "number": 5, "title": "Multi-Agent Orchestration Patterns with MAF" },

@@ -1,0 +1,14 @@
+{
+  "slug": "testing-requestport-workflows-microsoft-agent-framework-dotnet",
+  "title": "Testing RequestPort Workflows with Microsoft Agent Framework and .NET",
+  "description": "Test conditional human-in-the-loop workflows deterministically with controlled AI boundaries, real Microsoft Agent Framework routing, RequestPort event assertions, and SQLite-backed continuation.",
+  "published": "2026-06-04",
+  "type": "Technical Article",
+  "image": "",
+  "imageAlt": "",
+  "tags": ["Microsoft Agent Framework", ".NET", "RequestPort", "Human-in-the-Loop", "Testing"],
+  "featured": false,
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-01",
+  "book": "part-2",
+  "sourceChapter": 1
+}
