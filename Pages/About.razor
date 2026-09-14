@@ -3,11 +3,11 @@
 
 @if (profile is not null)
 {
-    <PageMetadata Title="About" Description="@profile.Intro" Image="@profile.ProfileImage" />
+    <PageMetadata Title="About Raj Shukla" Description="@profile.Intro" Image="@profile.ProfileImage" />
     <article class="about-page">
         <header class="page-intro shell">
             <p class="eyebrow">About</p>
-            <h1>@profile.AboutHeading</h1>
+            <h1>Engineering intelligent systems for the real world.</h1>
         </header>
         <div class="about-body shell @(string.IsNullOrWhiteSpace(profile.ProfileImage) ? "without-image" : null)">
             @if (!string.IsNullOrWhiteSpace(profile.ProfileImage))

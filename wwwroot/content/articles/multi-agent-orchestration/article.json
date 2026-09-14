@@ -8,5 +8,7 @@
   "imageAlt": "",
   "tags": ["Microsoft Agent Framework", "Multi-Agent Systems", "Agentic Workflows", ".NET"],
   "featured": false,
-  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2"
+  "sourceUrl": "https://github.com/rajshukla09/building-ai-agents-with-dotnet-part-2/tree/main/chapter-05",
+  "book": "part-2",
+  "sourceChapter": 5
 }

@@ -1,6 +1,6 @@
 @page "/articles"
 @inject ContentService Content
-<PageMetadata Title="Articles & Technical Notes" Description="Writing by Raj Shukla on Agentic AI, AI agents, agentic systems, .NET, Azure, and production AI architecture." />
+<PageMetadata Title="Articles — Raj Shukla" Description="Writing by Raj Shukla on Agentic AI, AI agents, agentic systems, .NET, Azure, and production AI architecture." />
 <header class="page-intro shell"><p class="eyebrow">Articles & Technical Notes</p><h1>Ideas for production systems.</h1><p>Long-form articles and concise field notes on agentic architecture, .NET, and the realities of operating AI systems.</p></header>
 <section class="section shell">@if (articles is null) { <p>Loading writing…</p> } else { <ArticleList Articles="articles" /> }</section>
 @code { private IReadOnlyList<ArticleSummary>? articles; protected override async Task OnInitializedAsync() => articles = await Content.GetArticlesAsync(); }

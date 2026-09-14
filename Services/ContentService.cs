@@ -11,7 +11,6 @@ public sealed partial class ContentService(HttpClient http)
     private IReadOnlyList<ArticleSummary>? _articles;
     private SiteProfile? _profile;
     private IReadOnlyList<BookItem>? _books;
-    private IReadOnlyList<ProjectItem>? _projects;
 
     public async Task<SiteProfile> GetProfileAsync() =>
         _profile ??= await http.GetFromJsonAsync<SiteProfile>("content/site/profile.json")
@@ -44,11 +43,24 @@ public sealed partial class ContentService(HttpClient http)
     public async Task<ArticleSummary?> GetArticleAsync(string slug) =>
         (await GetArticlesAsync()).FirstOrDefault(article => string.Equals(article.Slug, slug, StringComparison.OrdinalIgnoreCase));
 
+    public async Task<IReadOnlyList<ArticleSummary>> GetFeaturedArticlesAsync() =>
+        (await GetArticlesAsync()).Where(article => article.Featured).ToList();
+
+    public async Task<IReadOnlyList<ArticleSummary>> GetRecentArticlesAsync(int count = 3) =>
+        (await GetArticlesAsync()).Take(Math.Max(0, count)).ToList();
+
+    public async Task<IReadOnlyList<ArticleSummary>> GetArticlesByBookAsync(string bookSlug) =>
+        (await GetArticlesAsync())
+            .Where(article => string.Equals(article.Book, bookSlug, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+
+    public async Task<IReadOnlyList<ArticleSummary>> GetArticlesByBookAndChapterAsync(string bookSlug, int chapterNumber) =>
+        (await GetArticlesByBookAsync(bookSlug))
+            .Where(article => article.SourceChapter == chapterNumber)
+            .ToList();
+
     public async Task<string> GetRenderedMarkdownAsync(ArticleSummary article) =>
         RenderMarkdown(await http.GetStringAsync($"content/articles/{article.Slug}/content.md"));
-
-    public async Task<IReadOnlyList<ProjectItem>> GetProjectsAsync() =>
-        _projects ??= await http.GetFromJsonAsync<List<ProjectItem>>("content/projects/projects.json") ?? [];
 
     private static string RenderMarkdown(string markdown)
     {

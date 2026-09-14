@@ -3,14 +3,13 @@
 
 @if (profile is not null)
 {
-    <PageMetadata Title="@profile.Title" Description="@profile.Intro" Image="@profile.ProfileImage" />
+    <PageMetadata Title="@($"{profile.Name} — {profile.Title}")" Description="@profile.Intro" Image="@profile.ProfileImage" />
     <section class="hero shell">
         <div class="hero-content">
             <p class="eyebrow">@profile.Title</p>
             <h1>@profile.Name</h1>
-            <p class="hero-lede">@profile.HeroLead</p>
-            <p class="hero-copy">@profile.Intro</p>
-            <div class="actions"><a class="button primary" href="articles">Read the writing</a><a class="text-link" href="about">More about Raj <span aria-hidden="true">→</span></a></div>
+            <p class="hero-lede">@profile.Intro</p>
+            <div class="actions"><a class="button primary" href="articles">Read the writing</a><a class="text-link" href="books">Explore the books <span aria-hidden="true">→</span></a></div>
         </div>
     </section>
 }
@@ -21,22 +20,15 @@
         <div class="book-compact-grid">
             @foreach (var book in books.Where(book => book.Featured))
             {
-                <a href="books" class="book-compact"><div><strong>@book.Title</strong><p>@book.Subtitle</p></div></a>
+                <a href="@($"books/{book.Slug}")" class="book-compact"><div><strong>@book.Title</strong><p>@book.Subtitle</p></div></a>
             }
         </div>
     </section>
 }
 
-<section class="section home-section shell"><div class="section-heading split"><div><p class="eyebrow">Ideas in practice</p><h2>Latest Writing</h2></div><a class="text-link" href="articles">View all writing →</a></div>
-    @if (articles is null) { <p>Loading writing…</p> } else { <ArticleList Articles="articles.Take(3)" /> }
+<section class="section home-section shell"><div class="section-heading split"><div><p class="eyebrow">Ideas in practice</p><h2>Selected Writing</h2></div><a class="text-link" href="articles">View all writing →</a></div>
+    @if (articles is null) { <p>Loading writing…</p> } else { <ArticleList Articles="articles" /> }
 </section>
-
-@if (projects is { Count: > 0 })
-{
-    <section class="section home-section shell"><div class="section-heading"><p class="eyebrow">Code and examples</p><h2>Featured Open Source</h2></div>
-        <div class="project-lines">@foreach (var project in projects) { <a href="@project.GitHubUrl" target="_blank" rel="noopener"><strong>@project.Title</strong><span>@string.Join(" · ", project.Technologies) ↗</span></a> }</div>
-    </section>
-}
 
 @if (profile is not null)
 {
@@ -47,18 +39,18 @@
     private SiteProfile? profile;
     private IReadOnlyList<BookItem>? books;
     private IReadOnlyList<ArticleSummary>? articles;
-    private IReadOnlyList<ProjectItem>? projects;
 
     protected override async Task OnInitializedAsync()
     {
         var profileTask = Content.GetProfileAsync();
         var booksTask = Content.GetBooksAsync();
-        var articlesTask = Content.GetArticlesAsync();
-        var projectsTask = Content.GetProjectsAsync();
-        await Task.WhenAll(profileTask, booksTask, articlesTask, projectsTask);
+        var articlesTask = Content.GetFeaturedArticlesAsync();
+        await Task.WhenAll(profileTask, booksTask, articlesTask);
         profile = await profileTask;
         books = await booksTask;
-        articles = await articlesTask;
-        projects = await projectsTask;
+        var featuredArticles = await articlesTask;
+        articles = featuredArticles.Count > 0
+            ? featuredArticles.Take(3).ToList()
+            : await Content.GetRecentArticlesAsync(3);
     }
 }

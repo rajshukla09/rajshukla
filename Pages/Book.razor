@@ -3,7 +3,7 @@
 
 @if (book is null && loaded)
 {
-    <PageMetadata Title="Book not found" Description="The requested book could not be found." />
+    <PageMetadata Title="Book not found | Raj Shukla" Description="The requested book could not be found." />
     <section class="page-intro shell">
         <p class="eyebrow">Technical books</p>
         <h1>Book not found</h1>
@@ -12,8 +12,8 @@
 }
 else if (book is not null)
 {
-    <PageMetadata Title="@book.Title" Description="@book.Description" Image="@book.Image" />
-    <main class="book-detail-page">
+    <PageMetadata Title="@($"{book.Title} | Raj Shukla")" Description="@book.Description" Image="@book.Image" />
+    <div class="book-detail-page">
         <header class="book-detail-intro shell">
             <p class="eyebrow">Book companion</p>
             <h1>@book.Title</h1>
@@ -43,7 +43,7 @@ else if (book is not null)
                 @foreach (var chapter in book.Chapters.OrderBy(chapter => chapter.Number))
                 {
                     var chapterArticles = ArticlesFor(chapter.Number);
-                    <section class="chapter-row">
+                    <section class="chapter-row" id="@($"chapter-{chapter.Number}")">
                         <div class="chapter-number">@chapter.Number.ToString("00")</div>
                         <div class="chapter-content">
                             <h3>@chapter.Title</h3>
@@ -70,7 +70,7 @@ else if (book is not null)
                 }
             </div>
         </section>
-    </main>
+    </div>
 }
 
 @code {
@@ -83,7 +83,7 @@ else if (book is not null)
     protected override async Task OnParametersSetAsync()
     {
         var bookTask = Content.GetBookAsync(BookSlug);
-        var articlesTask = Content.GetArticlesAsync();
+        var articlesTask = Content.GetArticlesByBookAsync(BookSlug);
         await Task.WhenAll(bookTask, articlesTask);
         book = await bookTask;
         articles = await articlesTask;
@@ -92,9 +92,7 @@ else if (book is not null)
 
     private IReadOnlyList<ArticleSummary> ArticlesFor(int chapterNumber) =>
         articles
-            .Where(article =>
-                string.Equals(article.Book, book?.Slug, StringComparison.OrdinalIgnoreCase) &&
-                article.SourceChapter == chapterNumber)
+            .Where(article => article.SourceChapter == chapterNumber)
             .OrderByDescending(article => article.Published)
             .ToList();
 }

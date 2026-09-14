@@ -1,29 +1,30 @@
 @page "/articles/{Slug}"
 @inject ContentService Content
-@if (article is null && loaded) { <PageMetadata Title="Article not found" Description="The requested article could not be found." /><section class="page-intro shell"><h1>Article not found</h1><p><a href="articles">Return to all writing</a>.</p></section> }
+@if (article is null && loaded) { <PageMetadata Title="Article not found | Raj Shukla" Description="The requested article could not be found." /><section class="page-intro shell"><h1>Article not found</h1><p><a href="articles">Return to all writing</a>.</p></section> }
 else if (article is not null)
 {
-    <PageMetadata Title="@article.Title" Description="@article.Description" Type="article" Image="@article.Image" />
+    <PageMetadata Title="@($"{article.Title} | Raj Shukla")" Description="@article.Description" Type="article" Image="@article.Image" />
     <article class="article-page shell">
         <header class="article-intro"><p class="eyebrow">@article.ContentType</p><h1>@article.Title</h1><p class="article-dek">@article.Description</p><div class="article-meta"><time datetime="@article.Published.ToString("yyyy-MM-dd")">@article.Published.ToString("MMMM d, yyyy")</time><span>By Raj Shukla</span></div><div class="tags">@foreach (var tag in article.Tags) { <span>@tag</span> }</div></header>
         @if (!string.IsNullOrWhiteSpace(article.Image)) { <img class="article-hero" src="@article.Image" alt="@article.ImageAlt" /> }
         <div class="prose">@((MarkupString)html)</div>
-        @if (sourceBook is not null && article.SourceChapter is not null)
+        @if (sourceBook is not null && sourceChapter is not null)
         {
-            <p class="article-book-context"><span>From:</span> <a href="@($"books/{sourceBook.Slug}")">@sourceBook.Title · Chapter @article.SourceChapter: @article.SourceChapterTitle</a></p>
+            <p class="article-book-context"><span>From:</span> @sourceBook.Title<br /><a href="@($"books/{sourceBook.Slug}#chapter-{sourceChapter.Number}")">Chapter @sourceChapter.Number: @sourceChapter.Title</a></p>
         }
         @if (!string.IsNullOrWhiteSpace(article.SourceUrl)) { <p class="article-source"><a href="@article.SourceUrl" target="_blank" rel="noopener">Explore the related source code ↗</a></p> }
     </article>
 }
 @code {
     [Parameter] public string Slug { get; set; } = "";
-    private ArticleSummary? article; private BookItem? sourceBook; private string html = ""; private bool loaded;
+    private ArticleSummary? article; private BookItem? sourceBook; private BookChapter? sourceChapter; private string html = ""; private bool loaded;
     protected override async Task OnParametersSetAsync()
     {
         article = await Content.GetArticleAsync(Slug);
         sourceBook = article?.Book is { Length: > 0 } bookSlug
             ? await Content.GetBookAsync(bookSlug)
             : null;
+        sourceChapter = sourceBook?.Chapters.FirstOrDefault(chapter => chapter.Number == article?.SourceChapter);
         if (article is not null) html = await Content.GetRenderedMarkdownAsync(article);
         loaded = true;
     }

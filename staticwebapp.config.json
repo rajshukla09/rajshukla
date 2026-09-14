@@ -9,9 +9,10 @@
     // This ensures that requests to these files are not redirected to `index.html`
     // and can instead serve the actual static assets.
     "exclude": [
-      "/img/*", // Excludes all files in the `img` directory from rewrite.
+      "/images/*", // Excludes published images from rewrite.
       "/css/*", // Excludes all files in the `css` directory from rewrite.
-      "/js/*" // Excludes all files in the `js` directory from rewrite.
+      "/js/*", // Excludes JavaScript assets from rewrite.
+      "/content/*" // Excludes static JSON and Markdown content from rewrite.
     ]
   }
 }

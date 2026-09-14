@@ -14,19 +14,16 @@ public sealed record ArticleSummary(
     bool Featured,
     string? SourceUrl,
     string? Book = null,
-    int? SourceChapter = null,
-    string? SourceChapterTitle = null);
+    int? SourceChapter = null);
 
 public sealed record SiteProfile(
     string Name,
     string Title,
     string Intro,
-    string HeroLead,
     string ProfileImage,
     string ProfileImageAlt,
     string GitHubUrl,
     string LinkedInUrl,
-    string AboutHeading,
     string[] Biography);
 
 public sealed record BookItem(
@@ -42,6 +39,3 @@ public sealed record BookItem(
     BookChapter[] Chapters);
 
 public sealed record BookChapter(int Number, string Title);
-
-public sealed record ProjectItem(string Title, string Description, string[] Technologies, string GitHubUrl,
-    string? ArticleUrl = null, string? Screenshot = null);
