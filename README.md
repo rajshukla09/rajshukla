@@ -83,3 +83,5 @@ For **GitHub Pages**, publish the same static output. If deploying beneath a rep
 ## Content and SEO
 
 Each page supplies its own title, description, canonical URL, Open Graph metadata, and Twitter card metadata through `PageMetadata`. For a public production deployment, ensure the host's canonical domain and social-image URLs are configured consistently.
+
+Because social crawlers do not reliably execute Blazor WebAssembly, deployment also runs `tools/SeoGenerator` after publishing. It creates a physical `index.html` for every public route so metadata is present in the initial response. Article routes are generated from `articles-index.json` and each article's existing `article.json`; book routes use `books.json`. No separate per-article SEO list is required.

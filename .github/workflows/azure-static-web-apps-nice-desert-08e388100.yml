@@ -18,6 +18,17 @@ jobs:
           submodules: true
           lfs: false
 
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Publish site
+        run: dotnet publish rajshukla.csproj -c Release -o publish
+
+      - name: Generate crawler-visible route metadata
+        run: dotnet run --project tools/SeoGenerator/SeoGenerator.csproj -c Release -- publish/wwwroot
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -25,6 +36,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_DESERT_08E388100 }}
           action: "upload"
 
-          app_location: "/"
+          app_location: "publish/wwwroot"
           api_location: ""
-          output_location: "wwwroot"
+          output_location: ""
+          skip_app_build: true
